@@ -4,6 +4,9 @@ public class CollegeCost {
     boolean campus_accomodation;
     int weeks_of_stay;
     double weekly_cost_of_accomodation;
+    double weekly_cost_of_sustenance;
+
+    String[] details = new String[4];
 
     // dorm or commute only modifieas state
     public void dormOrCommute(){
@@ -45,10 +48,30 @@ public class CollegeCost {
         }
     }
 
+    public void costOfSustenance(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("How much will sustenance cost per week (2.d.p)?\n");
+        try {
+            weekly_cost_of_sustenance = sc.nextDouble();
+        } catch(Exception e) {
+            System.out.println("Error in costOfSustenance method");
+        }
+    }
+
+    public void getPersonalDetails(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your Name, Age, Degree Type (e.g. MSc, BA, PhD),Year of Study");
+        for (int i=0; i<4; i++){
+            details[i] = sc.nextLine();
+        }
+    }
+
     public static void main(String[] args){
         CollegeCost Cost = new CollegeCost();
         Cost.dormOrCommute();
         Cost.durationOfStay();
         Cost.costOfAccomodation();
+        Cost.costOfSustenance();
+        Cost.getPersonalDetails();
     }
 }
