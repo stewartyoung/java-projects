@@ -26,6 +26,10 @@ public class CollegeCost {
         System.out.print("How many weeks are you staying in that accomodation?\n");
         try {
             weeks_of_stay = sc.nextInt();   
+            if (weeks_of_stay > 52) {
+                System.out.println("Please enter 52 if planning to stay for more than a year"+
+                "this is a yearly cost calculator");
+            }
         } catch(Exception e) {
             System.out.println("Error in accomdation stay time");
         }
